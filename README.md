@@ -17,5 +17,7 @@ Then you can run the model interface which is `path_finder.py` with this interfa
 between two nodes ( OSMD ID ) where the used algorithm is A* with the weights as the predictions and the heuristic the distance. To run this 
 make sure you already have trained the model first and there is a `.pt` file in the `gnn_dataset` folder. Run this command:
 
-``` python path_finder.py --start "9293223530" --end "4038648450" --snapshot-index 20 ```
+``` 
+python path_finder.py --start "9293223530" --end "4038648450" --snapshot-index 20
+ ```
 
