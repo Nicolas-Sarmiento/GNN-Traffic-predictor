@@ -18,6 +18,8 @@ between two nodes ( OSMD ID ) where the used algorithm is A* with the weights as
 make sure you already have trained the model first and there is a `.pt` file in the `gnn_dataset` folder. Run this command:
 
 ``` 
-python path_finder.py --start "9293223530" --end "4038648450" --snapshot-index 20
+python path_finder.py --start "<osmid start>" --end "<osmid end>" --snapshot-index 1
  ```
+
+--start flag is for start node osmid, --end stands for end node osmid and --snapshot-index is the argument of the used input snapshot. In this repository contains a snapshot with 20 indexes from 0 to 19.
 
