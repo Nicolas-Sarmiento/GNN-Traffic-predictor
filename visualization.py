@@ -18,7 +18,7 @@ def visualize_snapshot(model: EdgeGCN, ds: SnapshotDataset, positions: np.ndarra
         yhat_norm = model(x, eidx, xf).cpu().numpy()
         yhat = denormalize(yhat_norm, t_mean, t_std)
     edge_index_np = eidx.cpu().numpy()
-    preds = yhat[:, 0]  # first target component
+    preds = yhat[:, 0]  
     segs = []
     for u, v in zip(edge_index_np[0], edge_index_np[1]):
         p1 = positions[u]; p2 = positions[v]

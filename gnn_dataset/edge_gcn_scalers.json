@@ -1,8 +1,4 @@
 {
-  "target_cols": [
-    0,
-    1
-  ],
   "in_mean": [
     0.46027401089668274,
     5.299893856048584,
@@ -30,5 +26,16 @@
   "t_std": [
     13.39087963104248,
     5.733450412750244
-  ]
+  ],
+  "target_cols": [
+    0,
+    1
+  ],
+  "edge_attr_key": null,
+  "detected_edge_attr_key": "edge_features",
+  "model_config": {
+    "hidden": 96,
+    "gcn_layers": 8,
+    "dropout": 0.4
+  }
 }
