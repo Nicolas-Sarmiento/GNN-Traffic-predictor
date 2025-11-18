@@ -35,7 +35,7 @@ def denormalize(Yn: np.ndarray, mean: np.ndarray, std: np.ndarray) -> np.ndarray
 def evaluate_denorm(model: EdgeGCN, ds: SnapshotDataset, device: torch.device,
                      t_mean: np.ndarray, t_std: np.ndarray) -> Dict[str, float]:
     model.eval()
-    mae_list = []; mse_list = []; rmse_list = []
+    mae_list = []; mse_list = []; rmse_list = []; r2_list = []
     with torch.no_grad():
         for i in range(len(ds)):
             x, eidx, xf, y_norm = ds[i]
@@ -48,8 +48,16 @@ def evaluate_denorm(model: EdgeGCN, ds: SnapshotDataset, device: torch.device,
             mse = np.mean(diff**2)
             rmse = math.sqrt(mse)
             mae_list.append(mae); mse_list.append(mse); rmse_list.append(rmse)
+            ss_res = np.sum(diff**2)
+            ss_tot = np.sum((y_true - y_true.mean())**2)
+            if ss_tot <= 1e-9:
+                r2 = float('nan')
+            else:
+                r2 = 1.0 - (ss_res / ss_tot)
+            r2_list.append(r2)
     return {
         'MAE': float(np.mean(mae_list)),
         'MSE': float(np.mean(mse_list)),
         'RMSE': float(np.mean(rmse_list)),
+        'R2': float(np.nanmean(r2_list))
     }

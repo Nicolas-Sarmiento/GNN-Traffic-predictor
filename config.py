@@ -16,6 +16,8 @@ def parse_args():
     p.add_argument('--target-name-substrings', nargs='*', default=None, help='Substrings to match in feature_names for selecting targets')
     p.add_argument('--feature-names-json', default=None, help='Optional JSON file with list of feature names corresponding to edge_attr columns. If relative path, resolved inside gnn_dataset.')
     p.add_argument('--edge-attr-key', default=None, help='Explicit key inside snapshot dict to use as edge attribute matrix (overrides auto-detect).')
+    p.add_argument('--dataset-dir', default=None, help='Directory containing edge_index.npy/node_features.npy; auto-detect if omitted.')
     p.add_argument('--save-prefix', default='edge_gcn', help='Prefix for saved artifacts')
     p.add_argument('--device', default=None, help='Force device (cpu/cuda) else auto')
+    p.add_argument('--show-plots', action='store_true', help='Display training plots after finishing')
     return p.parse_args()
