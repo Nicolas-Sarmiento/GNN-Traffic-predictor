@@ -128,7 +128,7 @@ def load_model_and_scalers(model_class, model_path, scalers_path, node_feat_dim,
     out_dim = len(t_mean)
     
     HIDDEN_DIM = 96  
-    GCN_LAYERS = 2
+    GCN_LAYERS = 8
     
     model = model_class(
         in_node=node_feat_dim,
